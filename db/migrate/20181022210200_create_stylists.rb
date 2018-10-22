@@ -6,6 +6,7 @@ class CreateStylists < ActiveRecord::Migration[5.2]
       t.string :email
       t.string :address
       t.integer :years_experience
+      t.boolean :stylist_barber
 
       t.timestamps
     end
