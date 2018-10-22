@@ -1,0 +1,2 @@
+class Duration < ApplicationRecord
+end

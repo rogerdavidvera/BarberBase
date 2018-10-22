@@ -1,0 +1,2 @@
+class StylistService < ApplicationRecord
+end

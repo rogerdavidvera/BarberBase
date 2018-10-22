@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stylist_id: 1
+  service_id: 1
+  duration_id: 1
+
+two:
+  stylist_id: 1
+  service_id: 1
+  duration_id: 1

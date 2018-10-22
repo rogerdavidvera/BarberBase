@@ -1,0 +1,2 @@
+class BlockTable < ApplicationRecord
+end
