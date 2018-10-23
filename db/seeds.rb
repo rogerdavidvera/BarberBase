@@ -13,7 +13,7 @@ Stylist.create(name: "Shawna Davis", phone_number: "(789) 555-5555", address: "7
 
 puts "Made some stylists..."
 
-Client.create(name: "Billy Bob", phone_number: "(000) 000-0000", address: "001 E. 33rd St, New York, NY", email: barber.base.client.test03@gmail.com)
+Client.create(name: "Billy Bob", phone_number: "(000) 000-0000", email: barber.base.client.test03@gmail.com)
 
 puts "Made some clients..."
 
