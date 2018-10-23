@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Stylist.create(name: "Roger Vera", phone_number: "(123) 555-5555", address: "123 Avenue A, New York, NY", email: barber.base.stylist.test01@gmail.com, years_experience: 20, stylist_barber: true)
+Stylist.create(name: "Roger Vera", phone_number: "(123) 555-5555", address: "123 Avenue A, New York, NY", email: "barber.base.stylist.test01@gmail.com", years_experience: 20, stylist_barber: true)
 
-Stylist.create(name: "Shawna Davis", phone_number: "(789) 555-5555", address: "789 Avenue Z, New York, NY", email: barber.base.stylist.test02@gmail.com , years_experience: 25, stylist_barber: false)
+Stylist.create(name: "Shawna Davis", phone_number: "(789) 555-5555", address: "789 Avenue Z, New York, NY", email: "barber.base.stylist.test02@gmail.com", years_experience: 25, stylist_barber: false)
 
 puts "Made some stylists..."
 
-Client.create(name: "Billy Bob", phone_number: "(000) 000-0000", email: barber.base.client.test03@gmail.com)
+Client.create(name: "Billy Bob", phone_number: "(000) 000-0000", email: "barber.base.client.test03@gmail.com")
 
 puts "Made some clients..."
 
