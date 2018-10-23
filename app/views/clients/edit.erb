@@ -1,0 +1,24 @@
+<h1>Edit your account information</h1>
+
+<%= form_for @client do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %><br>
+
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number %><br>
+
+  <%= f.label "Change your password" %>
+  <%= f.password_field :password %><br>
+
+  <%= f.label "Confirm new password" %>
+  <%= f.password_field :password_confirmation %><br><br>
+
+  <%= f.submit "Submit" %>
+<% end %>
+
+
+<br>
+<%= link_to "Return to profile", client_path(@client) %>

@@ -4,5 +4,15 @@ Rails.application.routes.draw do
   get  '/about',   to: 'static_pages#about'
   get  '/contact', to: 'static_pages#contact'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get 'profile', to: 'clients#show'
+
+  get '/clients/signup', to: 'clients#new', as: 'client_signup'
+
+  get "login", to: "sessions#new", as: "login"
+
+  post "sessions", to: "sessions#create", as: "sessions"
+
+  delete "sessions", to: "sessions#destroy"
+
+  resources :clients, only: [:create, :show, :edit, :update]
+  resources :stylists
 end

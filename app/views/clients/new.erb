@@ -1,0 +1,21 @@
+<h1>Sign up as a new client</h1>
+
+<%= form_for @client do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %><br>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %><br>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %><br><br>
+
+  <%= f.submit "Submit" %>
+<% end %>
+
+
+<br>
+<%= link_to "Return to home", root_path %>
