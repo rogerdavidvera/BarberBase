@@ -17,6 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 
 
+# behavior driven development 
 gem 'rspec-rails'
 
 # Use CoffeeScript for .coffee assets and views
