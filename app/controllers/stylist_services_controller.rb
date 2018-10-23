@@ -1,7 +1,4 @@
-class StylistsController < ActionController::Base
-
-before_action :find_stylist, only: [:show, :edit, :update, :destroy, :start_time_block_id]
-
+class StylistServicesController < ApplicationController
   def index
     @stylists = Stylist.all
   end
@@ -55,9 +52,6 @@ before_action :find_stylist, only: [:show, :edit, :update, :destroy, :start_time
 
   end
 
-
-  private
-
   def stylist_params
     params.require(:stylist).permit(:name, :start_time)
   end
@@ -65,5 +59,4 @@ before_action :find_stylist, only: [:show, :edit, :update, :destroy, :start_time
   def find_stylist
     @stylist = Stylist.find(params[:id])
   end
-
 end
