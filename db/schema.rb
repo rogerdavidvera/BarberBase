@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2018_10_22_212519) do
     t.string "email"
     t.string "address"
     t.integer "years_experience"
+    t.boolean "stylist_barber"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
