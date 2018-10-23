@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2018_10_22_212519) do
   create_table "block_tables", force: :cascade do |t|
     t.string "start_time_str"
     t.integer "start_time_int"
+    t.string "start_time_display"
+    t.string "end_time_display"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,8 +46,6 @@ ActiveRecord::Schema.define(version: 2018_10_22_212519) do
 
   create_table "services", force: :cascade do |t|
     t.string "title"
-    t.string "type"
-    t.string "subcategory"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -54,16 +54,14 @@ ActiveRecord::Schema.define(version: 2018_10_22_212519) do
     t.integer "stylist_id"
     t.integer "service_id"
     t.integer "duration_id"
+    t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "stylists", force: :cascade do |t|
     t.string "name"
-    t.string "phone_number"
-    t.string "email"
-    t.string "address"
-    t.integer "years_experience"
+    t.string "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

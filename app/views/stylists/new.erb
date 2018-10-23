@@ -1,0 +1,13 @@
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <h5><strong><%= error %></strong>!</h5>
+  <% end %>
+<% end %>
+<%= form_for @stylist do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br><br>
+<%= f.collection_select(:start_time, BlockTable.all, :start_time_display, :start_time_display) %><br><br>
+
+  <%= f.submit %>
+
+<% end %>

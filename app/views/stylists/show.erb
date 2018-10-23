@@ -1,0 +1,15 @@
+<h1>Stylist Profile</h1>
+
+<%= @stylist.name %>
+<%= @stylist.email %>
+<%= @stylist.address %>
+<%= @stylist.years_experience %>
+
+
+<% @stylist.stylist_services.each do |stylist_service| %>
+<%=  stylist_service.services.title %>
+<%= stylist_service.services.category %>
+<%= stylist_service.services.subcategory %>
+<%= stylist_service.duration.name %>
+<!-- add in link to book appoint  -->
+<% end %>
