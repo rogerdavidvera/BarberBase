@@ -17,8 +17,12 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 
 
-# behavior driven development 
+# behavior driven development
 gem 'rspec-rails'
+
+# Secure passwords
+gem 'bcrypt'
+
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

@@ -1,0 +1,12 @@
+<h1>Log in to your Client account</h1>
+
+<%= form_tag sessions_path do %>
+  <%= label_tag "Email" %>
+  <%= text_field_tag :email %>
+  <%= label_tag "Password" %>
+  <%= password_field_tag :password %>
+  <%= submit_tag "Sign In" %>
+<% end %>
+
+<br>
+<%= link_to "Return to home", root_path %>

@@ -1,4 +1,4 @@
-<h1>Sign up as a new client</h1>
+<h1>Edit your account information</h1>
 
 <%= form_for @client do |f| %>
   <%= f.label :name %>
@@ -7,10 +7,13 @@
   <%= f.label :email %>
   <%= f.text_field :email %><br>
 
-  <%= f.label :password %>
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number %><br>
+
+  <%= f.label "Change your password" %>
   <%= f.password_field :password %><br>
 
-  <%= f.label :password_confirmation %>
+  <%= f.label "Confirm new password" %>
   <%= f.password_field :password_confirmation %><br><br>
 
   <%= f.submit "Submit" %>
@@ -18,4 +21,4 @@
 
 
 <br>
-<%= link_to "Return to home", root_path %>
+<%= link_to "Return to profile", client_path(@client) %>
