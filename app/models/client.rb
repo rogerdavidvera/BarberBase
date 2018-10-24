@@ -9,5 +9,7 @@ class Client < ApplicationRecord
   # validates :email, format: { with: VALID_EMAIL_REGEX }
 
   # validates :phone_number, uniqueness: true
+  has_many :appointments
+  has_many :stylist_services, through: :appointments
 
 end

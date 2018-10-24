@@ -14,5 +14,8 @@ Rails.application.routes.draw do
   delete "sessions", to: "sessions#destroy"
 
   resources :clients, only: [:create, :show, :edit, :update]
+
   resources :stylists
+
+  resources :appointments, only: [:new, :create]
 end

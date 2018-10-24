@@ -4,6 +4,7 @@ class CreateStylistServices < ActiveRecord::Migration[5.2]
       t.integer :stylist_id
       t.integer :service_id
       t.integer :duration_id
+      t.float :price
 
       t.timestamps
     end

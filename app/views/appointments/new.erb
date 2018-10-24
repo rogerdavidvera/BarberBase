@@ -1,0 +1,32 @@
+<h1>Make a new appointment</h1>
+
+
+<h2><%= @appointment.stylist_service.stylist.name %></h2>
+<h2><%= @appointment.client.name %></h2>
+<h2><%= @appointment.stylist_service.service.title %> (<%= @appointment.stylist_service.duration.length %>) </h2>
+
+<% style_service_id = @appointment.stylist_service.id %>
+<% client_id = @appointment.client.id %>
+
+<!-- TODO: Change prompt depending on situation -->
+<%= form_for @appointment do |f| %>
+  <%= f.hidden_field :client_id, value: client_id %>
+  <%= f.hidden_field :stylist_service_id, value: style_service_id %>
+  <%= f.date_field :date %>
+  <%= f.submit "Select a Date" %>
+<% end %>
+
+<% if flash[:errors] %>
+    <%= flash[:errors] %>
+<% end %>
+
+<% if flash[:available_times] && !(flash[:errors]) %>
+  <%= flash[:available_times] %>
+  Date:<%= @appointment.date %>
+  <h2> Select a time </h2>
+
+  <% @selected_block_tables.each do |block_table| %>
+    <%= button_to block_table.start_time_display, appointments_path,
+    params: {appointment: {client_id: @appointment.client_id, stylist_service_id: @appointment.stylist_service_id, date: @appointment.date, block_table_id: block_table.id} }  %>
+  <% end %>
+<% end %>

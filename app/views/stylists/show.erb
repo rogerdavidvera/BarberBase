@@ -1,0 +1,19 @@
+<h2>Master Barber</h2>
+
+<h4>Name: <%= @stylist.name %></h4>
+<h4>Email: <%= @stylist.email %></h4>
+<h4>Address: <%= @stylist.address %></h4>
+<h4>Experience: <%= @stylist.years_experience %> years </h4>
+
+
+<%= form_for @appointment, as: :stylist_service, url: new_appointment_path, method: :get do |f| %>
+
+  <h2><%= f.label "Book a Service" %></h2>
+  <%= f.collection_select(:stylist_service_id, @stylist.stylist_services, :id, :title_and_duration) %><br><br>
+
+  <%= f.submit %>
+<% end %>
+
+
+<br>
+<%= link_to "Back to all stylists", stylists_path %>

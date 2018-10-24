@@ -8,6 +8,14 @@
 
 <br>
 
+<h4><%= link_to "Upcoming Appointments", stylists_path %></h4>
+<ul>
+  <% @client.appointments.each do |appointment| %>
+    <%= appointment %><br>
+  <% end %>
+</ul>
+<br>
+
 <!-- RUBY -->
 <%= link_to "Favorite Barbers", edit_client_path %>
 <br><br>

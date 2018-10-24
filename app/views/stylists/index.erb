@@ -1,0 +1,8 @@
+<h1>BarberBase Barbers</h1>
+
+<% @stylists.each do |stylist| %>
+<%= link_to stylist.name,  stylist %> <br>
+<% end %>
+
+<br>
+<%= link_to "Back to profile", client_path(current_user.id) %>
