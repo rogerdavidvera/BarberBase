@@ -3,6 +3,11 @@ class SessionsController < ApplicationController
   def new
     # don't need anything in here, cause we're not setting up a
     # blank model to couple with the form
+    if logged_in?
+      redirect_to client_path(current_user.id)
+    else
+
+    end
   end
 
   def create

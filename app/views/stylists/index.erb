@@ -1,8 +1,23 @@
-<h1>BarberBase Barbers</h1>
+<div class="container">
+  <h4 class="center-align indigo-text text-darken-1"></h4>
 
-<% @stylists.each do |stylist| %>
-<%= link_to stylist.name,  stylist %> <br>
-<% end %>
 
-<br>
-<%= link_to "Back to profile", client_path(current_user.id) %>
+  <div class="row">
+  <% @stylists.each do |stylist| %>
+
+  <div class="col s4">
+    <div class="card">
+      <div class="card-image">
+        <%= image_tag stylist.profile_picture %>
+      </div>
+      <div class="card-action">
+        <%= link_to stylist.name, stylist %>
+      </div>
+    </div>
+  </div>
+
+  <% end %>
+  </div>
+
+
+</div>

@@ -1,34 +1,60 @@
-<!-- RUBY -->
-<h2>Hello, <%= @client.name %></h2>
 
-<!-- End RUBY -->
-<br>
+<div class="container center">
 
-<h4><%= link_to "Make an new Appointment", stylists_path %></h4>
+  <div class="section">
+    <h3 class="center-align indigo-text text-darken-4">Hello, <%= @client.name %></h3>
+    <h5 class="center-align indigo-text text-darken-4">What would you like to do?</h5>
+  </div>
 
-<br>
+  <div class="section">
+    <% if @client.appointments == [] %>
+      <h6 class="red-text text-darken-1">You have no upcoming appointments!</h6>
+    <% else %>
+      <% if @client.appointments.count == 1 %>
+      <h6 class="indigo-text text-darken-4">Here's information on your next appointment:</h6>
+      <% else %>
+      <h6 class="indigo-text text-darken-4">You have the following upcoming appointments:</h6>
+      <% end %>
+      <div class="section">
+        <table>
+          <thead>
+            <tr class="indigo-text text-darken-4">
+                <th>Barber</th>
+                <th>Service</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+          </thead>
 
-<h4><%= link_to "Upcoming Appointments", stylists_path %></h4>
-<ul>
-  <% @client.appointments.each do |appointment| %>
-    <% time = appointment.start_time_display %>
-    <% appoinment_info = appointment.date.strftime("%A, %m/%d/%Y at #{time}") %>
-    <h5><%= appoinment_info %></h5>
-    <%= button_to "Cancel Appointment", appointment_delete_path(appointment),  method: :delete, data: { confirm: "Are you sure you want to cancel your appointment for #{appoinment_info}?" } %>
-    <br>
-  <% end %>
-</ul>
-<br>
+          <tbody>
+            <% @client.appointments.each do |appointment| %>
+              <tr>
+                <% time = appointment.start_time_display %>
+                <% appoinment_info = appointment.date.strftime("%A, %m/%d/%Y at #{time}") %>
+                <td> <%= appointment.stylist_name %> </td>
+                <td> <%= appointment.service_title %> </td>
+                <td> <%= appoinment_info %> </td>
+                <td> <%= link_to "Cancel", appointment_delete_path(appointment), class: "", method: :delete, data: { confirm: "Are you sure you want to cancel your appointment for #{appoinment_info}?" } %> </td>
 
-<!-- RUBY -->
-<%= link_to "Favorite Barbers", edit_client_path %>
-<br><br>
-<%= link_to "Edit Profile", edit_client_path %>
-<br><br>
-<!-- <h4>Payment Options</h4> -->
-<br><br>
-<% if logged_in? %>
-  <%= link_to "Logout", sessions_path, method: :delete %>
-<% else %>
-  <%= link_to "Login", login_path %>
-<% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  </div>
+
+
+  <div class="section">
+    <h6><%= link_to "Make an New Appointment", stylists_path %></h6>
+  </div>
+
+  <div class="section">
+    <h6><%= link_to "Edit Profile", edit_client_path %></h6>
+  </div>
+
+  <div class="section">
+    <h6><%= link_to "Logout", sessions_path, method: :delete %></h6>
+  </div>
+
+</div>

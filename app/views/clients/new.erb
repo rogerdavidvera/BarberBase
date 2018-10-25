@@ -1,20 +1,26 @@
-<h1>Sign up as a new client</h1>
-<%= form_for @client do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
+<div class="container">
+  <h4 class="center-align indigo-text text-darken-1">Create Account</h4>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %><br>
+  <%= form_for @client do |f| %>
+    <%= f.text_field :name, placeholder: 'Full Name', class: 'center-align' %><br>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %><br>
+    <%= f.text_field :email, placeholder: 'Email', class: 'center-align' %><br>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %><br><br>
+    <%= f.password_field :password, placeholder: 'Create a Password', class: 'center-align' %><br>
 
-  <%= f.submit "Submit" %>
-<% end %>
+    <%= f.password_field :password_confirmation, placeholder: 'Confirm Password', class: 'center-align'%><br><br>
+    <div class="section">
+      <div class="center-align">
+        <%= f.submit "Sign Up", class: "btn indigo lighten-3" %>
+      </div>
+    </div>
 
+  <% end %>
 
-<br>
-<%= link_to "Return to home", root_path %>
+  <div class="section">
+    <div class="center-align">
+    <%= link_to "Login to existing account", login_path, class: "" %>
+    </div>
+  </div>
+
+</div>

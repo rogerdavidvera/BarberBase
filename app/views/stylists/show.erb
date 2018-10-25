@@ -1,25 +1,58 @@
-<h2>Master Barber</h2>
 
-<h4>Name: <%= @stylist.name %></h4>
-<h4>Email: <%= @stylist.email %></h4>
-<h4>Address: <%= @stylist.address %></h4>
-<h4>Experience: <%= @stylist.years_experience %> years </h4>
+<div class="container">
+  <div class="section">
+    <div class="row">
 
-<%= image_tag(@stylist.profile_picture) %>
+      <div class="col s6">
+        <div class="card">
+          <div class="card-image">
+            <%= image_tag(@stylist.profile_picture) %>
+            <span class="card-title"> <%= @stylist.name %> </span>
+          </div>
+        </div>
+      </div>
 
+      <div class="col s6">
+        <%= form_for @appointment, as: :stylist_service, url: new_appointment_path, method: :get do |f| %>
 
-<%= form_for @appointment, as: :stylist_service, url: new_appointment_path, method: :get do |f| %>
+        <h4>Choose a Service</h4>
+        <div class="section">
+          <%= f.collection_select(:stylist_service_id, @stylist.stylist_services, :id, :title_and_duration, class: "browser-default") %>
+        </div>
+        <div class="section">
+          <%= f.submit class: "btn teal darken-1" %>
+        </div>
 
-  <h2><%= f.label "Book a Service" %></h2>
-  <%= f.collection_select(:stylist_service_id, @stylist.stylist_services, :id, :title_and_duration) %><br><br>
+        <% end %>
+      </div>
+    </div>
+    <!-- End Row -->
+  </div>
+    <h4 class="center-align"> <%= @stylist.name %>'s Work </h4>
+    <div class="row">
+      <% @stylist.pictures.each do |picture| %>
 
-  <%= f.submit %>
-<% end %>
+      <div class="col s4">
+        <div class="card">
+          <div class="card-image">
+            <%= image_tag picture.url %>
+          </div>
+        </div>
+      </div>
 
-<% @stylist.pictures.each do |picture| %>
-  <%= image_tag picture.url %>
-<% end %>
+      <% end %>
+    </div>
 
-
-<br>
-<%= link_to "Back to all stylists", stylists_path %>
+  <!-- End Section -->
+  <div class="section">
+    <div class="center-align">
+      <%= link_to "Back to all stylists", stylists_path %>
+    </div>
+  </div>
+  <!-- End Section -->
+</div>
+<!-- End Containter -->
+<script type="text/javascript">
+  var elems = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(elems, {})
+</script>

@@ -14,4 +14,12 @@ class Appointment < ApplicationRecord
   def start_time_display
     self.block_table.start_time_display
   end
+
+  def stylist_name
+    self.stylist_service.stylist.name
+  end
+
+  def service_title
+    self.stylist_service.service.title
+  end
 end

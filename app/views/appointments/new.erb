@@ -12,7 +12,7 @@
 <%= form_for @appointment do |f| %>
   <%= f.hidden_field :client_id, value: client_id %>
   <%= f.hidden_field :stylist_service_id, value: style_service_id %>
-  <%= f.date_field :date %>
+  <%= f.date_field :date, value: Date.today %>
   <%= f.submit "Select a Date" %>
 <% end %>
 
