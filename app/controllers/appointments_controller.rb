@@ -148,6 +148,12 @@ class AppointmentsController < ApplicationController
     # Final step is save Appointment to DB
   end
 
+  def destroy
+    @appointment = Appointment.find_by(id: params[:id])
+    @appointment.destroy
+    redirect_to client_path(current_user.id)
+  end
+
   private
 
   def appointment_params

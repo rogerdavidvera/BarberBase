@@ -17,5 +17,9 @@ Rails.application.routes.draw do
 
   resources :stylists
 
+  delete "/appointments/:id", to: "appointments#destroy", as: "appointment_delete"
+
   resources :appointments, only: [:new, :create]
+
+
 end

@@ -5,6 +5,8 @@
 <h4>Address: <%= @stylist.address %></h4>
 <h4>Experience: <%= @stylist.years_experience %> years </h4>
 
+<%= image_tag(@stylist.profile_picture) %>
+
 
 <%= form_for @appointment, as: :stylist_service, url: new_appointment_path, method: :get do |f| %>
 

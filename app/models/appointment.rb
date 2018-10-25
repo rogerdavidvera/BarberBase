@@ -10,4 +10,8 @@ class Appointment < ApplicationRecord
   def duration
     self.stylist_service.duration
   end
+
+  def start_time_display
+    self.block_table.start_time_display
+  end
 end

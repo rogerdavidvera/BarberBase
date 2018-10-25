@@ -11,7 +11,11 @@
 <h4><%= link_to "Upcoming Appointments", stylists_path %></h4>
 <ul>
   <% @client.appointments.each do |appointment| %>
-    <%= appointment %><br>
+    <% time = appointment.start_time_display %>
+    <% appoinment_info = appointment.date.strftime("%A, %m/%d/%Y at #{time}") %>
+    <h5><%= appoinment_info %></h5>
+    <%= button_to "Cancel Appointment", appointment_delete_path(appointment),  method: :delete, data: { confirm: "Are you sure you want to cancel your appointment for #{appoinment_info}?" } %>
+    <br>
   <% end %>
 </ul>
 <br>
