@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_22_212519) do
+ActiveRecord::Schema.define(version: 2018_10_25_115538) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer "client_id"
@@ -41,6 +41,13 @@ ActiveRecord::Schema.define(version: 2018_10_22_212519) do
 
   create_table "durations", force: :cascade do |t|
     t.string "length"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.string "stylist_id"
+    t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
