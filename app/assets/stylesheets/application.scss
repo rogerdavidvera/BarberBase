@@ -60,3 +60,11 @@ a {
   margin-left: 50px;
   font-family: 'Ultra', serif;
 }
+
+/* line 168, /Users/rogervera/.rvm/gems/ruby-2.3.3/gems/materialize-sass-1.0.0/assets/stylesheets/materialize/components/_cards.scss */
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+  color: #00897b;
+  margin-right: 24px;
+  transition: color .3s ease;
+  text-transform: uppercase;
+}

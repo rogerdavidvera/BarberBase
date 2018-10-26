@@ -2,8 +2,7 @@
 <div class="container center">
 
   <div class="section">
-    <h3 class="center-align indigo-text text-darken-4">Hello, <%= @client.name %></h3>
-    <h5 class="center-align indigo-text text-darken-4">What would you like to do?</h5>
+    <h2 class="center-align teal-text text-darken-1">Welcome, <%= @client.name %></h2>
   </div>
 
   <div class="section">
@@ -11,14 +10,14 @@
       <h6 class="red-text text-darken-1">You have no upcoming appointments!</h6>
     <% else %>
       <% if @client.appointments.count == 1 %>
-      <h6 class="indigo-text text-darken-4">Here's information on your next appointment:</h6>
+      <h6 class="teal-text text-darken-1">Here's information on your next appointment:</h6>
       <% else %>
-      <h6 class="indigo-text text-darken-4">You have the following upcoming appointments:</h6>
+      <h6 class="teal-text text-darken-1">You have the following upcoming appointments:</h6>
       <% end %>
       <div class="section">
         <table>
           <thead>
-            <tr class="indigo-text text-darken-4">
+            <tr class="teal-text text-darken-1">
                 <th>Barber</th>
                 <th>Service</th>
                 <th>Date</th>

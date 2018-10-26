@@ -1,4 +1,4 @@
-class AppointmentsController < ApplicationController
+class AppointmentsControllerTest < ApplicationController
   before_action :authorized
   # skip_before_action :authorized, only: [:new, :create] # or whatever onlys we will need
 
@@ -15,12 +15,10 @@ class AppointmentsController < ApplicationController
     stylist_service_id = flash[:stylist_service_id].to_i
     @appointment = Appointment.new(stylist_service_id: stylist_service_id, client_id: current_user.id)
     elsif flash[:available_times] == []
-      # raise params.inspect
-      flash[:errors] = "No times available for this day. Please select another day."
+      flash[:errors] = flash[:unavailable_day]
       stylist_service_id = flash[:stylist_service_id].to_i
       @appointment = Appointment.new(stylist_service_id: stylist_service_id, client_id: current_user.id)
     elsif flash[:date] == nil
-      # raise params.inspect
       stylist_service_id = flash[:stylist_service_id].to_i
       @appointment = Appointment.new(stylist_service_id: stylist_service_id, client_id: current_user.id)
     else
@@ -140,6 +138,11 @@ class AppointmentsController < ApplicationController
          # Now we have an array of all start times that will allow for
          # the duration of this appointment
          flash[:available_times] = available_start_times
+
+         if flash[:available_times] = []
+           flash[:unavailable_day] = day_string = selected_date.strftime("No times available for %A, %b. %-d, %Y.")
+         end
+
          flash[:stylist_service_id] = @appointment.stylist_service_id
          flash[:date] = @appointment.date
          redirect_to new_appointment_path

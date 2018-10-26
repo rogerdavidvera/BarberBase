@@ -1,9 +1,9 @@
 <div class="container">
-  
+
 <% if flash[:new_account] %>
-  <h4 class="center-align indigo-text text-darken-1"> <%= flash[:new_account] %> </h4>
+  <h4 class="center-align teal-text text-darken-1"> <%= flash[:new_account] %> </h4>
 <% else %>
-  <h4 class="center-align indigo-text text-darken-1">Login</h4>
+  <h4 class="center-align teal-text text-darken-1">Login</h4>
 <% end %>
 
   <%= form_tag sessions_path do %>
@@ -11,14 +11,14 @@
   <%= password_field_tag :password, nil, {placeholder: 'Password', class: 'center-align'} %>
   <div class="section">
     <div class="center-align">
-    <%= submit_tag "Sign In", class: "btn indigo lighten-3" %>
+    <%= submit_tag "Sign In", class: "btn teal darken-1" %>
     </div>
   </div>
   <% end %>
 
   <div class="section">
     <div class="center-align">
-    <%= link_to "Create an account", client_signup_path, class: "" %>
+    <h6><%= link_to "Create an account", client_signup_path, class: "" %></h6>
     </div>
   </div>
 
