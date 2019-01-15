@@ -1,22 +1,59 @@
-<!-- RUBY -->
-<h2>Hello, <%= @client.name %></h2>
 
-<!-- End RUBY -->
-<br>
+<div class="container center">
 
-<h4><%= link_to "Make an new Appointment", stylists_path %></h4>
+  <div class="section">
+    <h2 class="center-align teal-text text-darken-1">Welcome, <%= @client.name %></h2>
+  </div>
 
-<br>
+  <div class="section">
+    <% if @client.appointments == [] %>
+      <h6 class="red-text text-darken-1">You have no upcoming appointments!</h6>
+    <% else %>
+      <% if @client.appointments.count == 1 %>
+      <h6 class="teal-text text-darken-1">Here's information on your next appointment:</h6>
+      <% else %>
+      <h6 class="teal-text text-darken-1">You have the following upcoming appointments:</h6>
+      <% end %>
+      <div class="section">
+        <table>
+          <thead>
+            <tr class="teal-text text-darken-1">
+                <th>Barber</th>
+                <th>Service</th>
+                <th>Date</th>
+                <th></th>
+            </tr>
+          </thead>
 
-<!-- RUBY -->
-<%= link_to "Favorite Barbers", edit_client_path %>
-<br><br>
-<%= link_to "Edit Profile", edit_client_path %>
-<br><br>
-<!-- <h4>Payment Options</h4> -->
-<br><br>
-<% if logged_in? %>
-  <%= link_to "Logout", sessions_path, method: :delete %>
-<% else %>
-  <%= link_to "Login", login_path %>
-<% end %>
+          <tbody>
+            <% @client.appointments.each do |appointment| %>
+              <tr>
+                <% time = appointment.start_time_display %>
+                <% appoinment_info = appointment.date.strftime("%A, %m/%d/%Y at #{time}") %>
+                <td> <%= appointment.stylist_name %> </td>
+                <td> <%= appointment.service_title %> </td>
+                <td> <%= appoinment_info %> </td>
+                <td> <%= link_to "Cancel", appointment_delete_path(appointment), class: "", method: :delete, data: { confirm: "Are you sure you want to cancel your appointment for #{appoinment_info}?" } %> </td>
+
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  </div>
+
+
+  <div class="section">
+    <h6><%= link_to "Make an New Appointment", stylists_path %></h6>
+  </div>
+
+  <div class="section">
+    <h6><%= link_to "Edit Profile", edit_client_path %></h6>
+  </div>
+
+  <div class="section">
+    <h6><%= link_to "Logout", sessions_path, method: :delete %></h6>
+  </div>
+
+</div>

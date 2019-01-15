@@ -4,12 +4,28 @@
     <title>Barberbase</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="zcontainer">  <!-- newly added code -->
+    <nav>
+      <div class="nav-wrapper teal darken-1">
+        <%= link_to "BarberBase", root_path, class: "brand-logo left", id: "logo" %>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <% if logged_in? %>
+          <li><%= link_to "My Profile", client_path(current_user.id) %></li>
+          <li><%= link_to "Request Appointment", stylists_path %></li>
+
+          <% end %>
+          <li><%= link_to "About Us", about_path %></li>
+          <li><%= link_to "Contact Us", contact_path %></li>
+        </ul>
+      </div>
+    </nav>
+      <%= yield %>
+    </div>                   <!-- newly added code -->
   </body>
 </html>

@@ -20,6 +20,7 @@ class ClientsController < ApplicationController
     @client = Client.new(client_params)
     if @client.valid?
       @client.save
+      flash[:new_account] = "Welcome, #{@client.name}. Please sign in."
       redirect_to @client
     else
       raise params.inspect

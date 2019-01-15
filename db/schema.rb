@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_22_212519) do
+ActiveRecord::Schema.define(version: 2018_10_25_125507) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer "client_id"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2018_10_22_212519) do
   create_table "block_tables", force: :cascade do |t|
     t.string "start_time_str"
     t.integer "start_time_int"
+    t.string "start_time_display"
+    t.string "end_time_display"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,10 +45,15 @@ ActiveRecord::Schema.define(version: 2018_10_22_212519) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "pictures", force: :cascade do |t|
+    t.string "stylist_id"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "services", force: :cascade do |t|
     t.string "title"
-    t.string "type"
-    t.string "subcategory"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,6 +62,7 @@ ActiveRecord::Schema.define(version: 2018_10_22_212519) do
     t.integer "stylist_id"
     t.integer "service_id"
     t.integer "duration_id"
+    t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,9 +73,18 @@ ActiveRecord::Schema.define(version: 2018_10_22_212519) do
     t.string "email"
     t.string "address"
     t.integer "years_experience"
-    t.boolean "stylist_barber"
+    t.string "start_time"
+    t.string "end_time"
+    t.boolean "monday"
+    t.boolean "tuesday"
+    t.boolean "wednesday"
+    t.boolean "thursday"
+    t.boolean "friday"
+    t.boolean "saturday"
+    t.boolean "sunday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "profile_picture"
   end
 
 end

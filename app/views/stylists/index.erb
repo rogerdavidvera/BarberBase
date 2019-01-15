@@ -1,0 +1,23 @@
+<div class="container">
+  <h4 class="center-align teal-text text-darken-1">Select a barber for your next appointment</h4>
+
+
+  <div class="row">
+  <% @stylists.each do |stylist| %>
+
+  <div class="col s4">
+    <div class="card">
+      <div class="card-image">
+        <%= image_tag stylist.profile_picture %>
+      </div>
+      <div class="card-action">
+        <%= link_to stylist.name, stylist %>
+      </div>
+    </div>
+  </div>
+
+  <% end %>
+  </div>
+
+
+</div>

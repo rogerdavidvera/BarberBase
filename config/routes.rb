@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'static_pages#main'
+  root to: 'sessions#new'
   get  '/help',    to: 'static_pages#help'
   get  '/about',   to: 'static_pages#about'
   get  '/contact', to: 'static_pages#contact'
@@ -14,5 +14,12 @@ Rails.application.routes.draw do
   delete "sessions", to: "sessions#destroy"
 
   resources :clients, only: [:create, :show, :edit, :update]
+
   resources :stylists
+
+  delete "/appointments/:id", to: "appointments#destroy", as: "appointment_delete"
+
+  resources :appointments, only: [:new, :create]
+
+
 end

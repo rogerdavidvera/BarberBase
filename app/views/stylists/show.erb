@@ -1,0 +1,58 @@
+
+<div class="container">
+  <div class="section">
+    <div class="row">
+
+      <div class="col s6">
+        <div class="card">
+          <div class="card-image">
+            <%= image_tag(@stylist.profile_picture) %>
+            <span class="card-title"> <%= @stylist.name %> </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s6">
+        <%= form_for @appointment, as: :stylist_service, url: new_appointment_path, method: :get do |f| %>
+
+        <h4>Choose a Service</h4>
+        <div class="section">
+          <%= f.collection_select(:stylist_service_id, @stylist.stylist_services, :id, :title_and_duration, class: "browser-default") %>
+        </div>
+        <div class="section">
+          <%= f.submit class: "btn teal darken-1" %>
+        </div>
+
+        <% end %>
+      </div>
+    </div>
+    <!-- End Row -->
+  </div>
+    <h4 class="center-align"> <%= @stylist.name %>'s Work </h4>
+    <div class="row">
+      <% @stylist.pictures.each do |picture| %>
+
+      <div class="col s4">
+        <div class="card">
+          <div class="card-image">
+            <%= image_tag picture.url %>
+          </div>
+        </div>
+      </div>
+
+      <% end %>
+    </div>
+
+  <!-- End Section -->
+  <div class="section">
+    <div class="center-align">
+      <%= link_to "Back to all stylists", stylists_path %>
+    </div>
+  </div>
+  <!-- End Section -->
+</div>
+<!-- End Containter -->
+<script type="text/javascript">
+  var elems = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(elems, {})
+</script>
