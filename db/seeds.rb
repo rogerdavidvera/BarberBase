@@ -422,3 +422,5 @@ puts "Added Stylist 5's pictures"
 # Picture.create(stylist_id: 2, url: "https://gq-images.condecdn.net/image/R6m9MR9qQq0/crop/1020/f/Justin-Bieber-2010-GQ-28Feb17_getty_b.jpg")
 #
 # puts "Added Stylist 2's pictures"
+
+testing 1-2-3 4
