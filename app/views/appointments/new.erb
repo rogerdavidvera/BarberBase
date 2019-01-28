@@ -1,8 +1,10 @@
 <% style_service_id = @appointment.stylist_service.id %>
 <% client_id = @appointment.client.id %>
+<% length = @appointment.duration.length %>
 
 <div class="container">
-  <h3 class="center-align teal-text text-darken-1">Request an appointment</h3><h3 class="center-align teal-text text-darken-1">with <strong><%= @appointment.stylist_service.stylist.name %></strong></h3>
+  <h3 class="center-align teal-text text-darken-1">Request "<%= @appointment.service_title %>" </h3><h3 class="center-align teal-text text-darken-1">with <strong><%= @appointment.stylist_service.stylist.name %></strong></h3>
+  <h5 class="center-align teal-text text-darken-1"><small>Estimated Time: <%= length %></small></h5>
 </div>
 
 <div class="center container section">

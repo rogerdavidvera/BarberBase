@@ -8,6 +8,7 @@ class StylistsController < ApplicationController
   end
 
   def show
+    flash.delete(:errors)
     @appointment = Appointment.new
   end
 

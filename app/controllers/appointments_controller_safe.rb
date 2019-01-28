@@ -9,24 +9,23 @@ class AppointmentsController < ApplicationController
     # Coming from Barber show page
     if params["stylist_service"]
       stylist_service_id = params["stylist_service"]["stylist_service_id"].to_i
-      session[:stylist_service_id] = stylist_service_id
       @appointment = Appointment.new(stylist_service_id: stylist_service_id, client_id: current_user.id)
     elsif flash[:errors]
     # Date not available
-    stylist_service_id = session[:stylist_service_id].to_i
+    stylist_service_id = flash[:stylist_service_id].to_i
     @appointment = Appointment.new(stylist_service_id: stylist_service_id, client_id: current_user.id)
     elsif flash[:available_times] == []
       # raise params.inspect
       flash[:errors] = "No times available for this day. Please select another day."
-      stylist_service_id = session[:stylist_service_id].to_i
+      stylist_service_id = flash[:stylist_service_id].to_i
       @appointment = Appointment.new(stylist_service_id: stylist_service_id, client_id: current_user.id)
     elsif flash[:date] == nil
       # raise params.inspect
-      stylist_service_id = session[:stylist_service_id].to_i
+      stylist_service_id = flash[:stylist_service_id].to_i
       @appointment = Appointment.new(stylist_service_id: stylist_service_id, client_id: current_user.id)
     else
     # Coming from create page
-      stylist_service_id = session[:stylist_service_id].to_i
+      stylist_service_id = flash[:stylist_service_id].to_i
       date = DateTime.parse(flash[:date])
       @selected_block_tables = BlockTable.select do |block_table|
         flash[:available_times].include? block_table.id
@@ -51,7 +50,6 @@ class AppointmentsController < ApplicationController
           redirect_to new_appointment_path
         else
           weekdaynum = selected_date.wday
-
           case weekdaynum
           when 0
             ifopen = stylist.sunday
@@ -121,14 +119,6 @@ class AppointmentsController < ApplicationController
              block.id
            end
 
-           # {
-           #   0: true,
-           #   30: false,
-           #
-           #   ....
-           #   "23:30":false
-           # }
-
            # Go through first one,
            # if duration is an hour (aka id of 2)
            # we need 19,20 or 20,21, or 21,22 etc.
@@ -153,15 +143,15 @@ class AppointmentsController < ApplicationController
            # Now we have an array of all start times that will allow for
            # the duration of this appointment
            flash[:available_times] = available_start_times
-           session[:stylist_service_id] = @appointment.stylist_service_id
+           flash[:stylist_service_id] = @appointment.stylist_service_id
            flash[:date] = @appointment.date
            redirect_to new_appointment_path
           else
-            # else if NOT open
+            # If not open
             name_string = stylist.name
             day_string = selected_date.strftime("%As")
             flash[:errors] = "#{name_string} is not available on #{day_string}."
-            session[:stylist_service_id] = @appointment.stylist_service_id
+            flash[:stylist_service_id] = @appointment.stylist_service_id
             redirect_to new_appointment_path
           end
         end

@@ -33,7 +33,8 @@
                 <td> <%= appointment.stylist_name %> </td>
                 <td> <%= appointment.service_title %> </td>
                 <td> <%= appoinment_info %> </td>
-                <td> <%= link_to "Cancel", appointment_delete_path(appointment), class: "", method: :delete, data: { confirm: "Are you sure you want to cancel your appointment for #{appoinment_info}?" } %> </td>
+                <td> <%= link_to "Cancel", appointment_delete_path(appointment), class: "cancel btn red darken-2
+", method: :delete, data: { confirm: "Are you sure you want to cancel your appointment for #{appoinment_info}?" } %> </td>
 
               </tr>
             <% end %>
@@ -45,15 +46,18 @@
 
 
   <div class="section">
-    <h6><%= link_to "Make an New Appointment", stylists_path %></h6>
+    <h6><%= link_to "Make an New Appointment", stylists_path, class: "btn teal darken-1" %></h6>
   </div>
 
   <div class="section">
-    <h6><%= link_to "Edit Profile", edit_client_path %></h6>
-  </div>
-
-  <div class="section">
-    <h6><%= link_to "Logout", sessions_path, method: :delete %></h6>
+    <div class="row center">
+      <div class="col s6">
+        <%= link_to "Edit Profile", edit_client_path, class: "btn teal darken-1" %></h6>
+      </div>
+      <div class="col s6">
+        <%= link_to "Logout", sessions_path, method: :delete, class: "btn teal darken-1"%></h6>
+      </div>
+    </div>
   </div>
 
 </div>

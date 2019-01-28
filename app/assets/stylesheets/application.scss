@@ -15,6 +15,12 @@
  */
 @import "materialize";
 @import url('https://fonts.googleapis.com/css?family=Ultra');
+@import url('https://fonts.googleapis.com/css?family=Arvo');
+
+/* line 6, /Users/rogervera/.rvm/gems/ruby-2.3.3/gems/materialize-sass-1.0.0/assets/stylesheets/materialize/components/_typography.scss */
+html {
+  font-family: 'Arvo', serif;
+}
 
 $link-color: color("teal", "darken-1");
 
@@ -63,8 +69,10 @@ a {
 
 /* line 168, /Users/rogervera/.rvm/gems/ruby-2.3.3/gems/materialize-sass-1.0.0/assets/stylesheets/materialize/components/_cards.scss */
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
-  color: #00897b;
-  margin-right: 24px;
-  transition: color .3s ease;
-  text-transform: uppercase;
+  text-transform: capitalize;
+  color: #4db6ac;
+}
+
+.cancel {
+  font-size: 12px;
 }

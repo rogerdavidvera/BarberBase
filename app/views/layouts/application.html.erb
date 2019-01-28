@@ -15,13 +15,12 @@
       <div class="nav-wrapper teal darken-1">
         <%= link_to "BarberBase", root_path, class: "brand-logo left", id: "logo" %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <% if logged_in? %>
-          <li><%= link_to "My Profile", client_path(current_user.id) %></li>
-          <li><%= link_to "Request Appointment", stylists_path %></li>
-
-          <% end %>
           <li><%= link_to "About Us", about_path %></li>
-          <li><%= link_to "Contact Us", contact_path %></li>
+          <li><%= link_to "Team", team_path %></li>
+          <% if logged_in? %>
+            <li><%= link_to "Request Appointment", stylists_path %></li>
+            <li><%= link_to "My Profile", client_path(current_user.id) %></li>
+          <% end %>
         </ul>
       </div>
     </nav>
