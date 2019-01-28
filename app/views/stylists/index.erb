@@ -8,7 +8,7 @@
   <div class="col s4">
     <div class="card">
       <div class="card-image">
-        <%= image_tag stylist.profile_picture %>
+        <%= link_to image_tag(stylist.profile_picture), stylist %>
       </div>
       <div class="card-action">
         <%= link_to stylist.name, stylist %>

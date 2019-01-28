@@ -24,6 +24,8 @@ class SessionsController < ApplicationController
   def destroy
     params.inspect
     session.delete(:user_id) # or session[:user_id] = nil
+    session.delete(:stylist_service_id) # or session[:user_id] = nil
+    session.delete(:date_id) # or session[:user_id] = nil
     redirect_to root_path
   end
 

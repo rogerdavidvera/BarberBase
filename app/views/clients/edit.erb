@@ -1,24 +1,25 @@
-<h1>Edit your account information</h1>
+<div class="container">
+  <h4 class="center-align teal-text text-darken-1">Edit your account information</h4>
 
-<%= form_for @client do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
+  <%= form_for @client do |f| %>
+    <%= f.text_field :name, placeholder: 'Full Name', class: 'center-align' %><br>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %><br>
+    <%= f.text_field :email, placeholder: 'Email', class: 'center-align' %><br>
 
-  <%= f.label :phone_number %>
-  <%= f.text_field :phone_number %><br>
+    <%= f.password_field :password, placeholder: 'Create a Password', class: 'center-align' %><br>
 
-  <%= f.label "Change your password" %>
-  <%= f.password_field :password %><br>
+    <%= f.password_field :password_confirmation, placeholder: 'Confirm Password', class: 'center-align'%><br><br>
+    <div class="section">
+      <div class="center-align">
+        <%= f.submit "Update", class: "btn teal darken-1" %>
+      </div>
+    </div>
 
-  <%= f.label "Confirm new password" %>
-  <%= f.password_field :password_confirmation %><br><br>
+  <% end %>
+</div>
 
-  <%= f.submit "Submit" %>
-<% end %>
-
-
-<br>
-<%= link_to "Return to profile", client_path(@client) %>
+<div class="section">
+  <div class="center-align">
+    <%= link_to "Return to profile", client_path(@client) %>
+  </div>
+</div>
