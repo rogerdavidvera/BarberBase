@@ -1,5 +1,5 @@
 # Barberbase
-## A mock web application where you can create an account and book appointments with barbers
+## A mock web application where you can create an account and book appointments with barbers.
 
 ## Features
 
