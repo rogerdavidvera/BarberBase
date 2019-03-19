@@ -423,4 +423,4 @@ puts "Added Stylist 5's pictures"
 #
 # puts "Added Stylist 2's pictures"
 
-testing 1-2-3 4
+# nothing changed 3/18/19
